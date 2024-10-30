@@ -77,7 +77,8 @@ public class EasyObject : DynamicObject, IObjectWrapper
 
     public EasyObject(object x)
     {
-        this.m_data = new ObjectParser(false, new _EasyObjectConverter()).Parse(x);
+        ////this.m_data = new ObjectParser(false, new _EasyObjectConverter()).Parse(x);
+        this.m_data = new ObjectParser(false, new _EasyObjectConverter()).Parse(x, true);
     }
 
     public dynamic Dynamic {  get { return this; } }
