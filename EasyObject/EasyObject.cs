@@ -454,6 +454,23 @@ public class EasyObject : DynamicObject, IObjectWrapper
     }
     public T Cast<T>()
     {
+        if (this.m_data is DateTime dt)
+        {
+            string s = null;
+            switch (dt.Kind)
+            {
+                case DateTimeKind.Local:
+                    s = dt.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffffzzz");
+                    break;
+                case DateTimeKind.Utc:
+                    s = dt.ToString("o");
+                    break;
+                case DateTimeKind.Unspecified:
+                    s = dt.ToString("o").Replace("Z", "");
+                    break;
+            }
+            return (T)Convert.ChangeType(s, typeof(T));
+        }
         return (T)Convert.ChangeType(this.m_data, typeof(T));
     }
     public List<EasyObject> AsList
