@@ -123,5 +123,11 @@ class Program
         Echo(eo_ox, "eo_ox");
         Echo(eo_ox.ToJson(true, true), "eo_ox.ToJson(true, true)");
         Echo(DateTime.Now);
+
+        string progJson = """
+            #! /usr/bin/env program
+            [11, null, "abc"]
+            """;
+        Echo(EasyObject.FromJson(progJson));
     }
 }

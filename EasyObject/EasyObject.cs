@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -337,6 +338,19 @@ public class EasyObject : DynamicObject, IObjectWrapper
         }
     }
 
+    protected static string[] TextToLines(string text)
+    {
+        List<string> lines = new List<string>();
+        using (StringReader sr = new StringReader(text))
+        {
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                lines.Add(line);
+            }
+        }
+        return lines.ToArray();
+    }
     public static EasyObject FromObject(object obj)
     {
         return new EasyObject(obj);
@@ -344,6 +358,12 @@ public class EasyObject : DynamicObject, IObjectWrapper
 
     public static EasyObject FromJson(string json)
     {
+        if (json.StartsWith("#!"))
+        {
+            string[] lines = TextToLines(json);
+            lines = lines.Skip(1).ToArray(); ;
+            json = String.Join("\n", lines);
+        }
         return new EasyObject(JsonHandler.Parse(json));
     }
 
