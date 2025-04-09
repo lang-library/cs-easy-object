@@ -129,5 +129,6 @@ class Program
             [11, null, "abc"]
             """;
         Echo(EasyObject.FromJson(progJson));
+        Echo(EasyObject.FromJson(null));
     }
 }

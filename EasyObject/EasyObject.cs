@@ -360,6 +360,7 @@ public class EasyObject : DynamicObject, IObjectWrapper
 
     public static EasyObject FromJson(string json)
     {
+        if (json == null) return null;
         if (json.StartsWith("#!"))
         {
             string[] lines = TextToLines(json);
