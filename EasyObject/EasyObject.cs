@@ -48,11 +48,13 @@ internal class _EasyObjectConverter : IObjectConverter
 
 public class EasyObject : DynamicObject, IObjectWrapper
 {
-    //internal object m_data = null;
     public object m_data = null;
 
+#if false
     public static IJsonHandler DefaultJsonHandler = new CSharpJsonHandler(true, false);
-    //public static IJsonHandler DefaultJsonHandler = new CSharpEasyLanguageHandler(true, false);
+#else
+    public static IJsonHandler DefaultJsonHandler = new CSharpEasyLanguageHandler(true, false);
+#endif
     public static IJsonHandler JsonHandler = null;
     public static bool DebugOutput = false;
     public static bool ShowDetail = false;
