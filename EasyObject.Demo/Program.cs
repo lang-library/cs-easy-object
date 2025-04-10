@@ -40,7 +40,7 @@ class Program
         eo[3] = 777;
         Echo(eo[3].Cast<int>());
         Echo(eo.TypeValue, "eo.TypeValue");
-        Assert.That(eo.TypeValue, Is.EqualTo(@array));
+        Assert.That(eo.TypeValue, Is.EqualTo(EasyObject.array));
         Assert.That(eo.Count, Is.EqualTo(4));
         Assert.That(eo[0].TypeValue, Is.EqualTo(@null));
         Assert.That(() => { var n = eo[0].Cast<int>(); },
@@ -130,5 +130,9 @@ class Program
             """;
         Echo(EasyObject.FromJson(progJson));
         Echo(EasyObject.FromJson(null));
+        var array = EasyObject.NewArray(1, null, "abc", EasyObject.FromJson(progJson));
+        Echo(array, "array");
+        var obj = EasyObject.NewObject("a", 111, "b", EasyObject.FromJson(progJson));
+        Echo(obj, "obj");
     }
 }

@@ -80,7 +80,6 @@ public class EasyObject : DynamicObject, IObjectWrapper
 
     public EasyObject(object x)
     {
-        ////this.m_data = new ObjectParser(false, new _EasyObjectConverter()).Parse(x);
         this.m_data = new ObjectParser(false, new _EasyObjectConverter()).Parse(x, true);
     }
 
@@ -99,6 +98,26 @@ public class EasyObject : DynamicObject, IObjectWrapper
     public static EasyObject Null { get { return new EasyObject(); } }
     public static EasyObject EmptyArray { get { return new EasyObject(new List<EasyObject>()); } }
     public static EasyObject EmptyObject { get { return new EasyObject(new Dictionary<string, EasyObject>()); } }
+
+    public static EasyObject NewArray(params object[] args)
+    {
+        EasyObject result = EmptyArray;
+        for (int i = 0; i < args.Length; i++)
+        {
+            result.Add(FromObject(args[i]));
+        }
+        return result;
+    }
+    public static EasyObject NewObject(params object[] args)
+    {
+        if ((args.Length % 2) != 0) throw new ArgumentException("EasyObject.NewObject() requires even number arguments");
+        EasyObject result = EmptyObject;
+        for (int i = 0; i < args.Length; i+= 2)
+        {
+            result.Add(args[i].ToString(), FromObject(args[i+1]));
+        }
+        return result;
+    }
 
     public static EasyObjectType @string { get { return EasyObjectType.@string; } }
     public static EasyObjectType @boolean { get { return EasyObjectType.@boolean; } }
