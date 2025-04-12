@@ -2,7 +2,7 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <Version>2025.0410.1353.40</Version>
+    <Version>2025.0412.1710.06</Version>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <RootNamespace>EasyObject</RootNamespace>
