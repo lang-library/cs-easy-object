@@ -426,20 +426,20 @@ public class EasyObject : DynamicObject, IObjectWrapper
         Console.WriteLine(s);
         System.Diagnostics.Debug.WriteLine(s);
     }
-    public static void Log(object x, string? title = null)
+    public static void Log(object x, string title = null)
     {
         String s = ToPrintable(x, title);
         Console.Error.WriteLine("[Log] " + s);
         System.Diagnostics.Debug.WriteLine("[Log] " + s);
     }
-    public static void Debug(object x, string? title = null)
+    public static void Debug(object x, string title = null)
     {
         if (!DebugOutput) return;
         String s = ToPrintable(x, title);
         Console.Error.WriteLine("[Debug] " + s);
         System.Diagnostics.Debug.WriteLine("[Debug] " + s);
     }
-    public static void Message(object x, string? title = null)
+    public static void Message(object x, string title = null)
     {
         if (title == null) title = "Message";
         String s = ToPrintable(x, null);
