@@ -399,6 +399,7 @@ public class EasyObject : DynamicObject, IObjectWrapper
         return JsonHandler.Stringify(m_data, indent, sort_keys);
     }
 
+#if false
     public static void AllocConsole()
     {
         WinConsole.Alloc();
@@ -412,6 +413,8 @@ public class EasyObject : DynamicObject, IObjectWrapper
         FreeConsole();
         AllocConsole();
     }
+#endif
+
     public static string ToPrintable(object x, string title = null)
     {
         return ObjectParser.ToPrintable(ShowDetail, x, title);
