@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JsoncParser" Version="2025.409.1659.40" />
-    <PackageReference Include="WinConsole" Version="2024.603.1317.52" />
+    <!--<PackageReference Include="WinConsole" Version="2024.603.1317.52" />-->
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
