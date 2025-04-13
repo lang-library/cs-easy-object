@@ -2,7 +2,7 @@
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <Version>2025.0412.1710.06</Version>
+    <Version>2025.0413.1015.48</Version>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <RootNamespace>EasyObject</RootNamespace>
@@ -49,7 +49,7 @@
     <None Include="README.md" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="JsoncParser" Version="2025.409.1659.40" />
+    <PackageReference Include="JsoncParser" Version="2025.413.602.32" />
     <!--<PackageReference Include="WinConsole" Version="2024.603.1317.52" />-->
   </ItemGroup>
   <ItemGroup>

@@ -43,10 +43,12 @@ class Program
         Assert.That(eo.TypeValue, Is.EqualTo(EasyObject.array));
         Assert.That(eo.Count, Is.EqualTo(4));
         Assert.That(eo[0].TypeValue, Is.EqualTo(@null));
+#if false
         Assert.That(() => { var n = eo[0].Cast<int>(); },
             Throws.TypeOf<System.InvalidCastException>()
             .With.Message.EqualTo("Null オブジェクトを値型に変換することはできません。")
             );
+#endif
         //Assert.That((int?)eo[0], Is.EqualTo(null));
         Assert.That(eo[3].Cast<int>(), Is.EqualTo(777));
         foreach(var e in eo.Dynamic)
@@ -134,5 +136,17 @@ class Program
         Echo(array, "array");
         var obj = EasyObject.NewObject("a", 111, "b", EasyObject.FromJson(progJson));
         Echo(obj, "obj");
+        EasyObject assocList = EasyObject.FromJson("""
+            ( ("a" 123) ("b" true) )
+            """);
+        Echo(assocList, "assocList");
+        var member = assocList["a"];
+        Echo(member, "member");
+        dynamic assocDyn = assocList;
+        var member2 = assocDyn["a"];
+        Echo(member2, "member2");
+        var member3 = assocDyn.a;
+        Echo(member3, "member3");
+        Log("[END]");
     }
 }

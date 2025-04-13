@@ -5,7 +5,7 @@ using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
+//using System.Text;
 
 namespace Global;
 
@@ -253,9 +253,16 @@ public class EasyObject : DynamicObject, IObjectWrapper
     public override bool TryGetMember(
         GetMemberBinder binder, out object result)
     {
-        result = null;
-        if (dictionary == null) return true;
+        result = Null;
         string name = binder.Name;
+#if true
+        if (list != null)
+        {
+            var assoc = TryAssoc(name);
+            result = assoc;
+        }
+#endif
+        if (dictionary == null) return true;
         EasyObject eo = Null;
         dictionary.TryGetValue(name, out eo);
         result = eo;
@@ -294,13 +301,20 @@ public class EasyObject : DynamicObject, IObjectWrapper
             result = WrapInternal(list[pos]);
             return true;
         }
+#if true
+        if (list != null)
+        {
+            var assoc = TryAssoc((string)idx);
+            result = assoc;
+        }
+#endif
         if (dictionary == null)
         {
             result = Null;
             return true;
         }
         EasyObject eo = Null;
-        dictionary.TryGetValue((string)indexes[0], out eo);
+        dictionary.TryGetValue((string)idx, out eo);
         result = eo;
         return true;
     }
@@ -451,10 +465,33 @@ public class EasyObject : DynamicObject, IObjectWrapper
         internal static extern int MessageBoxW(
             IntPtr hWnd, string lpText, string lpCaption, uint uType);
     }
+    private EasyObject TryAssoc(string name)
+    {
+        try
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                var pair = list[i].AsList;
+                if (pair[0].Cast<string>() == name)
+                {
+                    return pair[1];
+                }
+            }
+            return Null;
+        }
+        catch (Exception e)
+        {
+            return Null;
+        }
+    }
     public EasyObject this[string name]
     {
         get
         {
+            if (list != null)
+            {
+                return TryAssoc(name);
+            }
             if (dictionary == null) return Null;
             EasyObject eo = null;
             dictionary.TryGetValue(name, out eo);
