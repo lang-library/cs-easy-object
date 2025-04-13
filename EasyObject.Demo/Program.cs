@@ -136,8 +136,9 @@ class Program
         Echo(array, "array");
         var obj = EasyObject.NewObject("a", 111, "b", EasyObject.FromJson(progJson));
         Echo(obj, "obj");
+        // Test newLisp expression
         EasyObject assocList = EasyObject.FromJson("""
-            ( ("a" 123) ("b" true) )
+            ( ("a" 123) ("b" true) ("c" false) ("d" nil) )
             """);
         Echo(assocList, "assocList");
         var member = assocList["a"];
