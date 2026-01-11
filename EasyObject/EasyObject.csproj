@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<LangVersion>latest</LangVersion>
 		<TargetFrameworks>netstandard2.0;net462;net8.0</TargetFrameworks>
-		<Version>2026.0111.0900.41</Version>
+		<Version>2026.0111.0916.33</Version>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<RootNamespace>EasyObject</RootNamespace>
@@ -52,7 +52,7 @@
 		<PackageReference Include="JsoncParser" Version="2025.414.206.21" />
 		<!--<PackageReference Include="WinConsole" Version="2024.603.1317.52" />-->
 	</ItemGroup>
-	<ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' != 'net'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
 	</ItemGroup>
