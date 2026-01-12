@@ -5,17 +5,17 @@
 		<Version>2026.0112.1847.21</Version>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>disable</ImplicitUsings>
-		<RootNamespace>EasyObject</RootNamespace>
+		<RootNamespace>PROGRAM</RootNamespace>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 		<NoWarn></NoWarn>
 		<Authors>JavaCommons</Authors>
 		<Company>JavaCommons Technologies</Company>
-		<Product>EasyObject</Product>
-		<Description>EasyObject Library</Description>
+		<Product>PROGRAM</Product>
+		<Description>PROGRAM Library</Description>
 		<Copyright>Copyright © JavaCommons Technologies 2024</Copyright>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<Title>EasyObject Library</Title>
-		<PackageId>EasyObject</PackageId>
+		<Title>PROGRAM Library</Title>
+		<PackageId>PROGRAM</PackageId>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/lang-library/PROGRAM</PackageProjectUrl>
 		<PackageTags>json;parser</PackageTags>
