@@ -17,7 +17,7 @@
 		<Title>PROGRAM Library</Title>
 		<PackageId>PROGRAM</PackageId>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/lang-library/PROGRAM</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/nuget-pkg/PROGRAM</PackageProjectUrl>
 		<PackageTags>json;parser</PackageTags>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
