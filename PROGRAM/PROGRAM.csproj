@@ -2,12 +2,12 @@
 	<PropertyGroup>
 		<LangVersion>latest</LangVersion>
 		<TargetFrameworks>netstandard2.0;net462;net8.0</TargetFrameworks>
-		<Version>2026.0111.1209.20</Version>
+		<Version>2026.0112.1845.08</Version>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<RootNamespace>EasyObject</RootNamespace>
 		<PlatformTarget>AnyCPU</PlatformTarget>
-		<NoWarn>3021,0618,8603,0168,8632,8600,8601,8604,8625,8618,8602</NoWarn>
+		<NoWarn></NoWarn>
 		<Authors>JavaCommons</Authors>
 		<Company>JavaCommons Technologies</Company>
 		<Product>EasyObject</Product>
@@ -17,7 +17,7 @@
 		<Title>EasyObject Library</Title>
 		<PackageId>EasyObject</PackageId>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/lang-library/cs-easy-object</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/lang-library/PROGRAM</PackageProjectUrl>
 		<PackageTags>json;parser</PackageTags>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -46,10 +46,10 @@
 		<Reference Include="System.Xml.Linq" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Include="README.md" Pack="true" PackagePath="" />
+		<None Include="..\README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="JsoncParser" Version="2026.111.921.55" />
+		<!--<PackageReference Include="JsoncParser" Version="2026.111.921.55" />-->
 		<!--<PackageReference Include="WinConsole" Version="2024.603.1317.52" />-->
 	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
