@@ -479,7 +479,7 @@ public class EasyObject : DynamicObject, IObjectWrapper
             }
             return Null;
         }
-        catch (Exception e)
+        catch (Exception /*e*/)
         {
             return Null;
         }
