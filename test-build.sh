@@ -11,16 +11,16 @@ find . -name bin -exec rm -rf {} +
 find . -name obj -exec rm -rf {} +
 
 cd $cwd
-dotnet test -p:Configuration=Release -p:Platform="Any CPU" PROGRAM.sln
+dotnet test -p:Configuration=Release -p:Platform="Any CPU" EasyObject.sln
 
-cd $cwd/PROGRAM
-#sed -i -e "s/<Version>.*<\/Version>/<Version>${version}<\/Version>/g" PROGRAM.csproj
+cd $cwd/EasyObject
+#sed -i -e "s/<Version>.*<\/Version>/<Version>${version}<\/Version>/g" EasyObject.csproj
 rm -rf *.nupkg
-dotnet pack -o . -p:Configuration=Release -p:Platform="Any CPU" PROGRAM.csproj
+dotnet pack -o . -p:Configuration=Release -p:Platform="Any CPU" EasyObject.csproj
 
 exit 0
 
-tag="PROGRAM-v$version"
+tag="EasyObject-v$version"
 cd $cwd
 git add .
 git commit -m"$tag"

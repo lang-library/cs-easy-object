@@ -1,1 +1,1 @@
-# PROGRAM
+# cs-easy-object
